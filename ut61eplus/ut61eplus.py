@@ -132,10 +132,10 @@ class Measurement:
 
     # strings that could mean overload - taken from android app
     _OVERLOAD = set(['.OL', 'O.L', 'OL.', 'OL', '-.OL', '-O.L', '-OL.', '-OL'])
-    
+
     # strings that Indicate level of voltage detected >=50Vrms (50-60Hz)
     _NCV = set(['EF','-','--','---','----','-----'])
-    
+
     # unit exponents
     _EXPONENTS = {
         'M':  6, # mega
@@ -189,7 +189,7 @@ class Measurement:
     def value(self)->decimal:
         """ decimal representation - e.g. 200mV => 0.2V """
         return self._data['decimal']
-    
+
     @property
     def progress(self)->int:
         """ some progress indicator - unknown meaning """
@@ -273,12 +273,13 @@ class Measurement:
             self._data['display_decimal'] = switch.get(self._data['display'],-1)
         else:
             self._data['display_decimal'] = decimal.Decimal(self.display)
-            
+
         self._data['display_unit'] = self._UNITS[ self._data['mode'] ].get(self._data['range'])
-        
+
         self._data['unit'] = self._data['display_unit']
 
         self._data['decimal'] = self.display_decimal
+
         if self._data['unit'][0] in self._EXPONENTS and not self._data['overload']:
             self._data['decimal'] = self._data['decimal'].rotate(self._EXPONENTS[self.unit[0]])
             self._data['unit'] = self._data['unit'][1:] # remove first char
@@ -334,7 +335,7 @@ class UT61EPLUS:
     _PID = 0xE429  # HID Device
 
     _SEQUENCE_GET_NAME = bytes.fromhex('AB CD 03 5F 01 DA')  # There are 2 responses, 1st:confirm, 2nd:'UT61E+'
-    _SEQUENCE_GET_SERIAL = bytes.fromhex('AB CD 03 5D 01 D8')  # unknown command, ref from: https://github.com/Aleks-nik-a/unit_ut61eplus	
+    _SEQUENCE_GET_SERIAL = bytes.fromhex('AB CD 03 5D 01 D8')  # unknown command, ref from: https://github.com/Aleks-nik-a/unit_ut61eplus
     _SEQUENCE_SEND_DATA = bytes.fromhex('AB CD 03 5E 01 D9')
     _SEQUENCE_SEND_CMD = bytes.fromhex('AB CD 03')
     '''
@@ -355,23 +356,24 @@ class UT61EPLUS:
     Peak Off     -> ab cd 03 4e 01 c9
     '''
     _COMMANDS = {
-        'min_max': 65,
-        'not_min_max': 66,
-        'range': 70, 
-        'auto': 71,
-        'rel': 72, 
-        'select2': 73, # Hz/USB
-        'hold': 74,
-        'lamp': 75,
-        'select1': 76, # orange
-        'p_min_max': 77,
-        'not_peak': 78,
+        'min_max': 65,      # Max/Min
+        'not_min_max': 66,  # Max/Min Off
+        'range': 70,        # Manual(Range)
+        'auto': 71,         # Auto
+        'rel': 72,          # REL
+        'select2': 73,      # Hz %
+        'hold': 74,         # Hold
+        'lamp': 75,         # Light On/Off
+        'select1': 76,      # Select (orange)
+        'p_min_max': 77,    # Peak Max/Min
+        'not_peak': 78,     # Peak Off
     }
 
     _hDevice = None
     _hReport = None
     _REC_X64 = [0x00]*64
-
+    _REC_TS = 0
+    _REC_QTY = 0
 
     def __init__(self, vid: int=_VID, pid: int=_PID, device_id=0):
 
@@ -385,15 +387,16 @@ class UT61EPLUS:
         filter = hid.HidDeviceFilter(vendor_id = self._VID, product_id = self._PID)
         hid_devices = filter.get_devices()
         if hid_devices:
-            log.info("[1-2] HID devices found: {0} \n {1}".format(len(hid_devices), hid_devices))
+            log.info("[1-2] HID devices found: count {0} \n {1}".format(len(hid_devices), hid_devices))
             if len(hid_devices) > device_id:
                 self._hDevice = hid_devices[device_id]  # found and set the correct id
             else:
-                log.error("[1-3] The device_id parameter({0}) must be less than the number of devices found({1})".format(device_id, len(hid_devices)))
+                log.error("[1-3] The device_id parameter({0}) must be less than the number of devices found({1})"\
+                .format(device_id, len(hid_devices)))
                 log.warning("[1-3-1] The device_id parameter({0}) temporarily set to(0)".format(device_id))
                 device_id = 0  # set device_id to first device 0
                 self._hDevice = hid_devices[device_id]  # temporarily set replacement id
-            log.debug("[1-2-1] HID device_id: {}".format(device_id)) 
+            log.debug("[1-2-1] HID device_id: {}".format(device_id))
             log.debug("[1-2-2] vendor_id: {:02X}".format(self._hDevice.vendor_id))
             log.debug("[1-2-3] product_id: {:02X}".format(self._hDevice.product_id))
             log.debug("[1-2-4] vendor_name: {}".format(self._hDevice.vendor_name))
@@ -426,7 +429,7 @@ class UT61EPLUS:
     def open(self, report_id=0):
         def _cb_receive(data):  # Callback function when Receive from HID
             log.info("[2-2-1] HID response, receive report from HID")
-            log.debug("[2-2-2] receive report data: {0} \n {1}".format(len(data), data))
+            log.debug("[2-2-2] receive report data: count {0} \n {1}".format(len(data), data))
             '''
             i = 0
             for bi in data:
@@ -435,10 +438,13 @@ class UT61EPLUS:
                     print("")
                 i += 1
             '''
-            self._REC_X64 = [0x02]*64
+            ##self._REC_X64 = [0x02]*64
             self._REC_X64 = data[1:]  # skip report_id , data[0]
-            log.debug("[2-2-3] store report data to _REC_X64: {0} \n {1}".format(len(self._REC_X64), self._REC_X64))
-
+            self._REC_TS = time.time()  # current timestamp
+            self._REC_QTY += 1  # count receive times
+            if self._REC_QTY > 1:
+                log.warning("[2-2-4] Receive data overflow: {}".format(self._REC_QTY))
+            log.debug("[2-2-3] store report data to _REC_X64: count {0} \n {1}".format(len(self._REC_X64), self._REC_X64))
 
         log.info("[2-1] HID device open")
         self._hDevice.open()
@@ -448,11 +454,12 @@ class UT61EPLUS:
 
         hReports = self._hDevice.find_output_reports()
         if hReports:
-            log.debug("[2-3] HID reports found: {0} \n {1}".format(len(hReports), hReports))
+            log.debug("[2-3] HID reports found: count {0} \n {1}".format(len(hReports), hReports))
             if len(hReports) > report_id:
                 self._hReport = hReports[report_id]
             else:
-                log.error("[2-4] The report_id parameter({0}) must be less than the number of reports found({1})".format(report_id, len(hReports)))
+                log.error("[2-4] The report_id parameter({0}) must be less than the number of reports found({1})"\
+                .format(report_id, len(hReports)))
         else:
             log.critical("[2-5] Can not setup, No HID report interface found")
 
@@ -464,16 +471,11 @@ class UT61EPLUS:
         else:
             log.critical("[4-2] Can not close, No HID devices found")
 
-    def _read(self):
-        log.info("[6-1] HID report data getting")
-        log.debug("[6-1-1] read from _REC_X64: {0} \n {1}".format(len(self._REC_X64), list("{:02X}".format(bi) for bi in self._REC_X64)))
-        return self._REC_X64
-
     def _write(self, b: bytes):
         buf = [0x20]*65
         log.info("[3-1] HID report writing and sending")
-        log.debug("[3-2] Initialize (clear) data buffer: {0} \n {1}".format(len(buf), list("{:02X}".format(bi) for bi in buf)))
-        log.debug("[3-2-1] write data to buffer: {0} \n {1}".format(len(b), list("{:02X}".format(bi) for bi in b)))
+        log.debug("[3-2] Initialize (clear) data buffer: count {0} \n {1}".format(len(buf), list("{:02X}".format(bi) for bi in buf)))
+        log.debug("[3-2-1] write data to buffer: count {0} \n {1}".format(len(b), list("{:02X}".format(bi) for bi in b)))
         '''
         i = 0
         for bi in b:
@@ -486,14 +488,61 @@ class UT61EPLUS:
         len_b = len(b)
         buf[1] = len_b  # 2nd byte is data length
         buf[2:(len_b+2)] = b[:]  # Copy the data to follow
-        log.debug("[3-2-2] send data buffer: {0} \n {1}".format(len(buf), list("{:02X}".format(bi) for bi in buf)))
+        log.debug("[3-2-2] send data buffer: count {0} \n {1}".format(len(buf), list("{:02X}".format(bi) for bi in buf)))
         if self._hReport:
             self._hReport.set_raw_data(buf)
             self._hReport.send()
-            time.sleep(0.2)  # wait callback function response, confirm and DMM_Name
+            ##time.sleep(0.15)  # wait callback function response, confirm and DMM_Name
             log.debug("[3-3] HID report writing completed")
         else:
             log.critical("[3-4] Can not write and send, No HID report interface found")
+
+    def _read(self, req_refresh=True, clear_qty=True, after_time=0):
+        log.info("[6-1] HID report data getting")
+
+        rec_x64 = None
+        if req_refresh:
+            if after_time > 0:
+                for ti in range(20):
+                    if self._REC_TS > after_time:
+                        rec_x64 = self._REC_X64
+                        break
+                    time.sleep(0.05)  # wait receive
+                    ti += 1
+                else:  # for ... else
+                    log.error("[6-3] Timeout 1 second, HID report data not arrived, last time: {0} < request time: {1}"\
+                    .format(self._REC_TS, after_time))
+            else:  # after_time <= 0
+                for ti in range(20):
+                    if self._REC_QTY > 0 :
+                        rec_x64 = self._REC_X64
+                        break
+                    time.sleep(0.05)  # wait receive
+                    ti += 1
+                else:  # for ... else
+                    log.error("[6-4] Timeout 1 second, HID report data not arrived, quantity of report: {0}".format(self._REC_QTY))
+        else:  # not(req_refresh)
+            rec_x64 = self._REC_X64
+
+        if rec_x64:
+            if clear_qty:
+                self._REC_QTY = 0
+            log.debug("[6-2] HID report data read from _REC_X64: Timestemp {0} count {1} \n {2}"\
+            .format(self._REC_TS, len(rec_x64), list("{:02X}".format(bi) for bi in rec_x64)))
+        else:
+            '''---  test data ---'''
+            ##rec_x64 = None
+            ##rec_x64 = [0x05]*64
+            ##rec_x64 = [0x00, 0xab, 0xcd, 0x00, 0x01, 0x78]
+            ##rec_x64 = [0x00, 0xab, 0xcd, 0x03, 0x01, 0x01, 0x7C]
+            ##rec_x64 = [0x00, 0xab, 0xcd, 0x10, 1,2,3,4,5,6,7,8,9,10,11,12,13,14, 0x01, 0xF1]
+            ##rec_x64 = [0x13, 0xab, 0xcd, 0x10, 0x00, 0x30, 0x20, 0x30, 0x2e, 0x30, 0x30, 0x31, 0x30, 0x00, 0x00, 0x30, 0x30, 0x30, 0x03, 0x87]
+            ##log.debug("[6-5-1] HID report (test data), rec_x64: count {0} \n {1}".format(len(rec_x64), list("{:02X}".format(bi) for bi in rec_x64)))
+            '''------------------'''
+            log.error("[6-5] HID report data buffer, _REC_X64: Timestemp {0} count {1} \n {2}"\
+            .format(self._REC_TS, len(self._REC_X64), list("{:02X}".format(bi) for bi in self._REC_X64)))
+
+        return rec_x64  ##self._REC_X64
 
     def _readResponse(self) -> bytes:
         # pylint: disable=unsupported-assignment-operation,unsubscriptable-object
@@ -503,42 +552,52 @@ class UT61EPLUS:
         sum: int = 0
 
         log.info("[5-1] Extract data from receive report")
-        while True:
-            log.debug("[5-2] HID report reading")
-            x = self._read()
-            log.debug("[5-3] HID report reading completed")
-            b: int
-            for b in x[1:]:  # skip first byte - length from HID
-                if state < 3 or index + 2 < len(buf):  # sum all bytes except last 2
-                    sum += b
-                    log.debug('[5-3-1] sum all bytes except last 2, b:{0:02X}, checksum:{1:04X}'.format(b, sum))
-                if state == 0 and b == 0xAB:
-                    state = 1
-                    log.debug('[5-3-2] state 0 -> 1')
-                elif state == 1 and b == 0xCD:
-                    state = 2
-                    log.debug('[5-3-2] state 1 -> 2')
-                elif state == 2:
-                    buf = bytearray(b)  # length of data , if (b + 2) != x[0]: log.error('length error')
-                    if b < 3 or b > 60:
-                        log.error('[5-3-4] data length less than 3')
-                        return None
-                    index = 0
-                    state = 3
-                    log.debug('[5-3-5] state 2 -> 3')
-                elif state == 3:
-                    buf[index] = b  # data
-                    index += 1
-                    if index >= len(buf):
-                        recevied_sum = (buf[-2] << 8) + buf[-1]
-                        log.debug('[5-3-6] calculated sum=%04X expected sum=%04X', sum, recevied_sum)
-                        if sum != recevied_sum:
-                            log.warning('[5-3-7] checksum mismatch')
-                            return None
-                        return buf[:-2]  # drop last 2 bytes at end with checksum
-                else:
-                    log.error('[5-4] Unexpected byte (0x%02X) in state (%i)', b, state)
+        ##while True:
+        log.debug("[5-2] HID report reading")
+        ##x = self._read(req_refresh=True, clear_qty=True, after_time=time.time())
+        x = self._read(req_refresh=True, clear_qty=True, after_time=0)
+        log.debug("[5-3] HID report reading completed")
+        if not(x) or len(x) < 6:
+            log.error('[5-4] HID report data is incorrect, ({0}) length should be at least 6'\
+            .format(list("{:02X}".format(bi) for bi in x) if x else None))
+            return None
+        b: int
+        for b in x[1:]:  # skip first byte - length from HID
+            if state < 3 or index + 2 < len(buf):  # sum all bytes except last 2
+                sum += b
+                log.debug('[5-3-1] sum all bytes except last 2, b:{0:02X}, checksum:{1:04X}'.format(b, sum))
+            if state == 0 and b == 0xAB:
+                state = 1
+                log.debug('[5-3-2] state 0 -> 1')
+            elif state == 1 and b == 0xCD:
+                state = 2
+                log.debug('[5-3-2] state 1 -> 2')
+            elif state == 2:
+                buf = bytearray(b)  # length of data , if (b + 2) != x[0]: log.error('length error')
+                if b < 3 or b > 60:
+                    log.error('[5-3-4] length of data is incorrect ({0}), length should be 4~16'.format(b))
                     return None
+                index = 0
+                state = 3
+                log.debug('[5-3-5] state 2 -> 3')
+            elif state == 3:
+                buf[index] = b  # data
+                index += 1
+                if index >= len(buf):
+                    recevied_sum = (buf[-2] << 8) + buf[-1]
+                    log.debug('[5-3-6] calculated sum=%04X expected sum=%04X', sum, recevied_sum)
+                    if sum != recevied_sum:
+                        log.warning('[5-3-7] checksum mismatch')
+                        return None
+                    return buf[:-2]  # drop last 2 bytes at end with checksum
+            else:
+                log.error('[5-5] Unexpected byte (0x%02X) in state (%i)', b, state)
+                return None
+        else:  # for ... else
+            log.error("[5-6] Can not extract data from receive report in state ({0}), raw data: count {1} \n {2}"\
+            .format(state, len(x), list("{:02X}".format(bi) for bi in x)))
+            return None
+
 
     def getName(self):
         # pylint: disable=unused-variable
@@ -547,7 +606,7 @@ class UT61EPLUS:
         self._write(self._SEQUENCE_GET_NAME)
         confirm = self._readResponse()  # 1st response, confirm : 07 AB CD 04 FF 00 02 7B
         log.debug('[7-2] DMM response, confirm: {}'.format(confirm))
-        time.sleep(0.2)  # wait 2nd response from DMM
+        ##time.sleep(0.2)  # wait 2nd response from DMM
         name = self._readResponse()  # 2nd response, name : 0B AB CD 08 55 54 36 31 45 2B 03 00
         log.debug('[7-3] DMM response, name: {}'.format(name))
         if isinstance(name, bytearray):
@@ -589,7 +648,7 @@ class UT61EPLUS:
         # pylint: disable=unused-variable
         confirm = self._readResponse()  # response, confirm : 07 AB CD 04 FF 00 02 7B
         log.debug('[8-2] DMM response, confirm: {}'.format(confirm))
-        time.sleep(0.2)  # wait other response from DMM
+        ##time.sleep(0.2)  # wait other response from DMM
         log.debug('[8-3] Send Command completed')
 
     def _test(self):
