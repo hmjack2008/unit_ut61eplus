@@ -1,0 +1,356 @@
+
+
+(py3117) D:\work>python  D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+
+2024-02-29 01:03:35,685 [INFO] __main__: D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+2024-02-29 01:03:35,685 [INFO] ut61eplus.ut61eplus: [1-1] Device initial, vid:1A86 pid:E429
+2024-02-29 01:03:35,788 [INFO] ut61eplus.ut61eplus: [1-2] HID devices found: 1
+ [HID device (vID=0x1a86, pID=0xe429, v=0x3701); WWW.WCH.CN; WCH UART TO KB-MS_V1.7, Path: \\?\hid#vid_1a86&pid_e429#6&124830c&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}]
+2024-02-29 01:03:35,788 [DEBUG] ut61eplus.ut61eplus: [1-2-1] HID device_id: 0
+2024-02-29 01:03:35,789 [DEBUG] ut61eplus.ut61eplus: [1-2-2] vendor_id: 1A86
+2024-02-29 01:03:35,789 [DEBUG] ut61eplus.ut61eplus: [1-2-3] product_id: E429
+2024-02-29 01:03:35,789 [DEBUG] ut61eplus.ut61eplus: [1-2-4] vendor_name: WWW.WCH.CN
+2024-02-29 01:03:35,790 [DEBUG] ut61eplus.ut61eplus: [1-2-5] product_name: WCH UART TO KB-MS_V1.7
+2024-02-29 01:03:35,790 [DEBUG] ut61eplus.ut61eplus: [1-2-6] version_number: 14081
+2024-02-29 01:03:35,790 [DEBUG] ut61eplus.ut61eplus: [1-2-7] serial_number: 20195D52E085
+2024-02-29 01:03:35,790 [DEBUG] ut61eplus.ut61eplus: [1-2-8] device_path: \\?\hid#vid_1a86&pid_e429#6&124830c&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+2024-02-29 01:03:35,791 [INFO] ut61eplus.ut61eplus: [2-1] HID device open
+2024-02-29 01:03:35,791 [DEBUG] ut61eplus.ut61eplus: [2-2] Callback function setting for Receive from HID
+2024-02-29 01:03:35,791 [DEBUG] ut61eplus.ut61eplus: [2-3] HID reports found: 1
+ [HID report object (Output report, id=0x00), 1 items included]
+2024-02-29 01:03:35,792 [INFO] ut61eplus.ut61eplus: [7-1] Get name of DMM (Digital Multimeter)
+2024-02-29 01:03:35,792 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:03:35,792 [DEBUG] ut61eplus.ut61eplus: [3-2] Initialize (clear) data buffer: 65
+ ['20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:35,792 [DEBUG] ut61eplus.ut61eplus: [3-2-1] write data to buffer: 6
+ ['AB', 'CD', '03', '5F', '01', 'DA']
+2024-02-29 01:03:35,792 [DEBUG] ut61eplus.ut61eplus: [3-2-2] send data buffer: 65
+ ['00', '06', 'AB', 'CD', '03', '5F', '01', 'DA', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:35,869 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:03:35,869 [DEBUG] ut61eplus.ut61eplus: [2-2-2] receive report data: 65
+ [0, 7, 171, 205, 4, 255, 0, 2, 123, 49, 53, 46, 48, 49, 1, 4, 48, 52, 57, 3, 176, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:35,869 [DEBUG] ut61eplus.ut61eplus: [2-2-3] store report data to _REC_X64: 64
+ [7, 171, 205, 4, 255, 0, 2, 123, 49, 53, 46, 48, 49, 1, 4, 48, 52, 57, 3, 176, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:35,943 [DEBUG] ut61eplus.ut61eplus: [3-3] HID report writing completed
+2024-02-29 01:03:35,943 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:03:35,944 [DEBUG] ut61eplus.ut61eplus: [5-2] HID report reading
+2024-02-29 01:03:35,944 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:03:35,944 [DEBUG] ut61eplus.ut61eplus: [6-1-1] read from _REC_X64: 64
+ ['07', 'AB', 'CD', '04', 'FF', '00', '02', '7B', '31', '35', '2E', '30', '31', '01', '04', '30', '34', '39', '03', 'B0', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98']
+2024-02-29 01:03:35,945 [DEBUG] ut61eplus.ut61eplus: [5-3] HID report reading completed
+2024-02-29 01:03:35,945 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:AB, checksum:00AB
+2024-02-29 01:03:35,945 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 0 -> 1
+2024-02-29 01:03:35,945 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:CD, checksum:0178
+2024-02-29 01:03:35,945 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 1 -> 2
+2024-02-29 01:03:35,946 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:04, checksum:017C
+2024-02-29 01:03:35,946 [DEBUG] ut61eplus.ut61eplus: [5-3-5] state 2 -> 3
+2024-02-29 01:03:35,946 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:FF, checksum:027B
+2024-02-29 01:03:35,947 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:00, checksum:027B
+2024-02-29 01:03:35,947 [DEBUG] ut61eplus.ut61eplus: [5-3-6] calculated sum=027B expected sum=027B
+2024-02-29 01:03:35,947 [DEBUG] ut61eplus.ut61eplus: [7-2] DMM response, confirm: bytearray(b'\xff\x00')
+2024-02-29 01:03:35,981 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:03:35,981 [DEBUG] ut61eplus.ut61eplus: [2-2-2] receive report data: 65
+ [0, 11, 171, 205, 8, 85, 84, 54, 49, 69, 43, 3, 0, 49, 1, 4, 48, 52, 57, 3, 176, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:35,981 [DEBUG] ut61eplus.ut61eplus: [2-2-3] store report data to _REC_X64: 64
+ [11, 171, 205, 8, 85, 84, 54, 49, 69, 43, 3, 0, 49, 1, 4, 48, 52, 57, 3, 176, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:36,148 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:03:36,148 [DEBUG] ut61eplus.ut61eplus: [5-2] HID report reading
+2024-02-29 01:03:36,148 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:03:36,148 [DEBUG] ut61eplus.ut61eplus: [6-1-1] read from _REC_X64: 64
+ ['0B', 'AB', 'CD', '08', '55', '54', '36', '31', '45', '2B', '03', '00', '31', '01', '04', '30', '34', '39', '03', 'B0', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98']
+2024-02-29 01:03:36,148 [DEBUG] ut61eplus.ut61eplus: [5-3] HID report reading completed
+2024-02-29 01:03:36,148 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:AB, checksum:00AB
+2024-02-29 01:03:36,148 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 0 -> 1
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:CD, checksum:0178
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 1 -> 2
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:08, checksum:0180
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-5] state 2 -> 3
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:55, checksum:01D5
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:54, checksum:0229
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:36, checksum:025F
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:31, checksum:0290
+2024-02-29 01:03:36,150 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:45, checksum:02D5
+2024-02-29 01:03:36,151 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:2B, checksum:0300
+2024-02-29 01:03:36,151 [DEBUG] ut61eplus.ut61eplus: [5-3-6] calculated sum=0300 expected sum=0300
+2024-02-29 01:03:36,151 [DEBUG] ut61eplus.ut61eplus: [7-3] DMM response, name: bytearray(b'UT61E+')
+2024-02-29 01:03:36,151 [INFO] __main__: --- Get DMM name : UT61E+ ---
+2024-02-29 01:03:36,452 [INFO] __main__: --- Light switch On/Off ---
+2024-02-29 01:03:36,452 [INFO] ut61eplus.ut61eplus: [8-1] Send Command: lamp
+2024-02-29 01:03:36,452 [DEBUG] ut61eplus.ut61eplus: [8-1-1] Command code: 4B
+2024-02-29 01:03:36,453 [DEBUG] ut61eplus.ut61eplus: [8-1-2] Command data: ['AB', 'CD', '03', '4B', '01', 'C6']
+2024-02-29 01:03:36,453 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:03:36,453 [DEBUG] ut61eplus.ut61eplus: [3-2] Initialize (clear) data buffer: 65
+ ['20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:36,454 [DEBUG] ut61eplus.ut61eplus: [3-2-1] write data to buffer: 6
+ ['AB', 'CD', '03', '4B', '01', 'C6']
+2024-02-29 01:03:36,454 [DEBUG] ut61eplus.ut61eplus: [3-2-2] send data buffer: 65
+ ['00', '06', 'AB', 'CD', '03', '4B', '01', 'C6', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:36,520 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:03:36,520 [DEBUG] ut61eplus.ut61eplus: [2-2-2] receive report data: 65
+ [0, 7, 171, 205, 4, 255, 0, 2, 123, 69, 43, 3, 0, 49, 1, 4, 48, 52, 57, 3, 176, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:36,520 [DEBUG] ut61eplus.ut61eplus: [2-2-3] store report data to _REC_X64: 64
+ [7, 171, 205, 4, 255, 0, 2, 123, 69, 43, 3, 0, 49, 1, 4, 48, 52, 57, 3, 176, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:36,605 [DEBUG] ut61eplus.ut61eplus: [3-3] HID report writing completed
+2024-02-29 01:03:36,606 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:03:36,606 [DEBUG] ut61eplus.ut61eplus: [5-2] HID report reading
+2024-02-29 01:03:36,606 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:03:36,606 [DEBUG] ut61eplus.ut61eplus: [6-1-1] read from _REC_X64: 64
+ ['07', 'AB', 'CD', '04', 'FF', '00', '02', '7B', '45', '2B', '03', '00', '31', '01', '04', '30', '34', '39', '03', 'B0', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98']
+2024-02-29 01:03:36,606 [DEBUG] ut61eplus.ut61eplus: [5-3] HID report reading completed
+2024-02-29 01:03:36,606 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:AB, checksum:00AB
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 0 -> 1
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:CD, checksum:0178
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 1 -> 2
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:04, checksum:017C
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [5-3-5] state 2 -> 3
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:FF, checksum:027B
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:00, checksum:027B
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [5-3-6] calculated sum=027B expected sum=027B
+2024-02-29 01:03:36,607 [DEBUG] ut61eplus.ut61eplus: [8-2] DMM response, confirm: bytearray(b'\xff\x00')
+2024-02-29 01:03:36,808 [DEBUG] ut61eplus.ut61eplus: [8-3] Send Command completed
+2024-02-29 01:03:37,109 [INFO] __main__: --- Get DMM data ---
+2024-02-29 01:03:37,110 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:03:37,110 [DEBUG] ut61eplus.ut61eplus: [3-2] Initialize (clear) data buffer: 65
+ ['20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:37,110 [DEBUG] ut61eplus.ut61eplus: [3-2-1] write data to buffer: 6
+ ['AB', 'CD', '03', '5E', '01', 'D9']
+2024-02-29 01:03:37,110 [DEBUG] ut61eplus.ut61eplus: [3-2-2] send data buffer: 65
+ ['00', '06', 'AB', 'CD', '03', '5E', '01', 'D9', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:37,173 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:03:37,174 [DEBUG] ut61eplus.ut61eplus: [2-2-2] receive report data: 65
+ [0, 19, 171, 205, 16, 3, 48, 32, 32, 79, 76, 46, 32, 32, 4, 1, 48, 52, 57, 3, 166, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:37,174 [DEBUG] ut61eplus.ut61eplus: [2-2-3] store report data to _REC_X64: 64
+ [19, 171, 205, 16, 3, 48, 32, 32, 79, 76, 46, 32, 32, 4, 1, 48, 52, 57, 3, 166, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:37,263 [DEBUG] ut61eplus.ut61eplus: [3-3] HID report writing completed
+2024-02-29 01:03:37,263 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:03:37,263 [DEBUG] ut61eplus.ut61eplus: [5-2] HID report reading
+2024-02-29 01:03:37,263 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:03:37,264 [DEBUG] ut61eplus.ut61eplus: [6-1-1] read from _REC_X64: 64
+ ['13', 'AB', 'CD', '10', '03', '30', '20', '20', '4F', '4C', '2E', '20', '20', '04', '01', '30', '34', '39', '03', 'A6', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98']
+2024-02-29 01:03:37,264 [DEBUG] ut61eplus.ut61eplus: [5-3] HID report reading completed
+2024-02-29 01:03:37,264 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:AB, checksum:00AB
+2024-02-29 01:03:37,264 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 0 -> 1
+2024-02-29 01:03:37,264 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:CD, checksum:0178
+2024-02-29 01:03:37,264 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 1 -> 2
+2024-02-29 01:03:37,264 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:10, checksum:0188
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-5] state 2 -> 3
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:03, checksum:018B
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:30, checksum:01BB
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:20, checksum:01DB
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:20, checksum:01FB
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:4F, checksum:024A
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:4C, checksum:0296
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:2E, checksum:02C4
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:20, checksum:02E4
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:20, checksum:0304
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:04, checksum:0308
+2024-02-29 01:03:37,265 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:01, checksum:0309
+2024-02-29 01:03:37,266 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:30, checksum:0339
+2024-02-29 01:03:37,266 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:34, checksum:036D
+2024-02-29 01:03:37,266 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:39, checksum:03A6
+2024-02-29 01:03:37,266 [DEBUG] ut61eplus.ut61eplus: [5-3-6] calculated sum=03A6 expected sum=03A6
+2024-02-29 01:03:37,266 [INFO] __main__: measurent=
+binary=03 30 20 20 4f 4c 2e 20 20 04 01 30 34 39
+mode=DCmV
+range=0
+display=OL.
+display_decimal=
+display_unit=mV
+overload=True
+value=
+unit=mV
+progress=41
+isMax=False
+ismin=False
+isHold=False
+isRel=False
+isAuto=False
+hasBatteryWarning=False
+hashasHVWarning=False
+isDC=True
+isMaxPeak=False
+isMinPeak=False
+isBarPol=True
+
+2024-02-29 01:03:37,568 [INFO] __main__: --- Close ---
+2024-02-29 01:03:37,568 [INFO] ut61eplus.ut61eplus: [4-1] HID device close
+2024-02-29 01:03:37,572 [DEBUG] ut61eplus.ut61eplus: [10-1] UT61EPLUS class destruct
+
+
+
+(py3117) D:\work>python  D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+
+2024-02-29 01:03:46,034 [INFO] __main__: D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+2024-02-29 01:03:46,035 [INFO] ut61eplus.ut61eplus: [1-1] Device initial, vid:1A86 pid:E429
+2024-02-29 01:03:46,146 [INFO] ut61eplus.ut61eplus: [1-2] HID devices found: 1
+ [HID device (vID=0x1a86, pID=0xe429, v=0x3701); WWW.WCH.CN; WCH UART TO KB-MS_V1.7, Path: \\?\hid#vid_1a86&pid_e429#6&124830c&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}]
+2024-02-29 01:03:46,146 [DEBUG] ut61eplus.ut61eplus: [1-2-1] HID device_id: 0
+2024-02-29 01:03:46,147 [DEBUG] ut61eplus.ut61eplus: [1-2-2] vendor_id: 1A86
+2024-02-29 01:03:46,147 [DEBUG] ut61eplus.ut61eplus: [1-2-3] product_id: E429
+2024-02-29 01:03:46,147 [DEBUG] ut61eplus.ut61eplus: [1-2-4] vendor_name: WWW.WCH.CN
+2024-02-29 01:03:46,147 [DEBUG] ut61eplus.ut61eplus: [1-2-5] product_name: WCH UART TO KB-MS_V1.7
+2024-02-29 01:03:46,147 [DEBUG] ut61eplus.ut61eplus: [1-2-6] version_number: 14081
+2024-02-29 01:03:46,147 [DEBUG] ut61eplus.ut61eplus: [1-2-7] serial_number: 20195D52E085
+2024-02-29 01:03:46,147 [DEBUG] ut61eplus.ut61eplus: [1-2-8] device_path: \\?\hid#vid_1a86&pid_e429#6&124830c&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+2024-02-29 01:03:46,147 [INFO] ut61eplus.ut61eplus: [2-1] HID device open
+2024-02-29 01:03:46,148 [DEBUG] ut61eplus.ut61eplus: [2-2] Callback function setting for Receive from HID
+2024-02-29 01:03:46,148 [DEBUG] ut61eplus.ut61eplus: [2-3] HID reports found: 1
+ [HID report object (Output report, id=0x00), 1 items included]
+2024-02-29 01:03:46,148 [INFO] ut61eplus.ut61eplus: [7-1] Get name of DMM (Digital Multimeter)
+2024-02-29 01:03:46,148 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:03:46,148 [DEBUG] ut61eplus.ut61eplus: [3-2] Initialize (clear) data buffer: 65
+ ['20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:46,148 [DEBUG] ut61eplus.ut61eplus: [3-2-1] write data to buffer: 6
+ ['AB', 'CD', '03', '5F', '01', 'DA']
+2024-02-29 01:03:46,148 [DEBUG] ut61eplus.ut61eplus: [3-2-2] send data buffer: 65
+ ['00', '06', 'AB', 'CD', '03', '5F', '01', 'DA', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:46,238 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:03:46,238 [DEBUG] ut61eplus.ut61eplus: [2-2-2] receive report data: 65
+ [0, 7, 171, 205, 4, 255, 0, 2, 123, 79, 76, 46, 32, 32, 4, 1, 48, 52, 57, 3, 166, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:46,238 [DEBUG] ut61eplus.ut61eplus: [2-2-3] store report data to _REC_X64: 64
+ [7, 171, 205, 4, 255, 0, 2, 123, 79, 76, 46, 32, 32, 4, 1, 48, 52, 57, 3, 166, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:46,300 [DEBUG] ut61eplus.ut61eplus: [3-3] HID report writing completed
+2024-02-29 01:03:46,300 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:03:46,300 [DEBUG] ut61eplus.ut61eplus: [5-2] HID report reading
+2024-02-29 01:03:46,300 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:03:46,300 [DEBUG] ut61eplus.ut61eplus: [6-1-1] read from _REC_X64: 64
+ ['07', 'AB', 'CD', '04', 'FF', '00', '02', '7B', '4F', '4C', '2E', '20', '20', '04', '01', '30', '34', '39', '03', 'A6', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98']
+2024-02-29 01:03:46,300 [DEBUG] ut61eplus.ut61eplus: [5-3] HID report reading completed
+2024-02-29 01:03:46,300 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:AB, checksum:00AB
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 0 -> 1
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:CD, checksum:0178
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 1 -> 2
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:04, checksum:017C
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [5-3-5] state 2 -> 3
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:FF, checksum:027B
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:00, checksum:027B
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [5-3-6] calculated sum=027B expected sum=027B
+2024-02-29 01:03:46,302 [DEBUG] ut61eplus.ut61eplus: [7-2] DMM response, confirm: bytearray(b'\xff\x00')
+2024-02-29 01:03:46,350 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:03:46,350 [DEBUG] ut61eplus.ut61eplus: [2-2-2] receive report data: 65
+ [0, 11, 171, 205, 8, 85, 84, 54, 49, 69, 43, 3, 0, 32, 4, 1, 48, 52, 57, 3, 166, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:46,352 [DEBUG] ut61eplus.ut61eplus: [2-2-3] store report data to _REC_X64: 64
+ [11, 171, 205, 8, 85, 84, 54, 49, 69, 43, 3, 0, 32, 4, 1, 48, 52, 57, 3, 166, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:46,503 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:03:46,504 [DEBUG] ut61eplus.ut61eplus: [5-2] HID report reading
+2024-02-29 01:03:46,504 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:03:46,504 [DEBUG] ut61eplus.ut61eplus: [6-1-1] read from _REC_X64: 64
+ ['0B', 'AB', 'CD', '08', '55', '54', '36', '31', '45', '2B', '03', '00', '20', '04', '01', '30', '34', '39', '03', 'A6', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98']
+2024-02-29 01:03:46,504 [DEBUG] ut61eplus.ut61eplus: [5-3] HID report reading completed
+2024-02-29 01:03:46,504 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:AB, checksum:00AB
+2024-02-29 01:03:46,504 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 0 -> 1
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:CD, checksum:0178
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 1 -> 2
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:08, checksum:0180
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-5] state 2 -> 3
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:55, checksum:01D5
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:54, checksum:0229
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:36, checksum:025F
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:31, checksum:0290
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:45, checksum:02D5
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:2B, checksum:0300
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [5-3-6] calculated sum=0300 expected sum=0300
+2024-02-29 01:03:46,505 [DEBUG] ut61eplus.ut61eplus: [7-3] DMM response, name: bytearray(b'UT61E+')
+2024-02-29 01:03:46,505 [INFO] __main__: --- Get DMM name : UT61E+ ---
+2024-02-29 01:03:46,806 [INFO] __main__: --- Light switch On/Off ---
+2024-02-29 01:03:46,806 [INFO] ut61eplus.ut61eplus: [8-1] Send Command: lamp
+2024-02-29 01:03:46,806 [DEBUG] ut61eplus.ut61eplus: [8-1-1] Command code: 4B
+2024-02-29 01:03:46,806 [DEBUG] ut61eplus.ut61eplus: [8-1-2] Command data: ['AB', 'CD', '03', '4B', '01', 'C6']
+2024-02-29 01:03:46,807 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:03:46,807 [DEBUG] ut61eplus.ut61eplus: [3-2] Initialize (clear) data buffer: 65
+ ['20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:46,807 [DEBUG] ut61eplus.ut61eplus: [3-2-1] write data to buffer: 6
+ ['AB', 'CD', '03', '4B', '01', 'C6']
+2024-02-29 01:03:46,807 [DEBUG] ut61eplus.ut61eplus: [3-2-2] send data buffer: 65
+ ['00', '06', 'AB', 'CD', '03', '4B', '01', 'C6', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:46,890 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:03:46,890 [DEBUG] ut61eplus.ut61eplus: [2-2-2] receive report data: 65
+ [0, 7, 171, 205, 4, 255, 0, 2, 123, 69, 43, 3, 0, 32, 4, 1, 48, 52, 57, 3, 166, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:46,890 [DEBUG] ut61eplus.ut61eplus: [2-2-3] store report data to _REC_X64: 64
+ [7, 171, 205, 4, 255, 0, 2, 123, 69, 43, 3, 0, 32, 4, 1, 48, 52, 57, 3, 166, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:46,960 [DEBUG] ut61eplus.ut61eplus: [3-3] HID report writing completed
+2024-02-29 01:03:46,960 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:03:46,960 [DEBUG] ut61eplus.ut61eplus: [5-2] HID report reading
+2024-02-29 01:03:46,960 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:03:46,960 [DEBUG] ut61eplus.ut61eplus: [6-1-1] read from _REC_X64: 64
+ ['07', 'AB', 'CD', '04', 'FF', '00', '02', '7B', '45', '2B', '03', '00', '20', '04', '01', '30', '34', '39', '03', 'A6', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98']
+2024-02-29 01:03:46,961 [DEBUG] ut61eplus.ut61eplus: [5-3] HID report reading completed
+2024-02-29 01:03:46,961 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:AB, checksum:00AB
+2024-02-29 01:03:46,961 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 0 -> 1
+2024-02-29 01:03:46,962 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:CD, checksum:0178
+2024-02-29 01:03:46,962 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 1 -> 2
+2024-02-29 01:03:46,962 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:04, checksum:017C
+2024-02-29 01:03:46,962 [DEBUG] ut61eplus.ut61eplus: [5-3-5] state 2 -> 3
+2024-02-29 01:03:46,962 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:FF, checksum:027B
+2024-02-29 01:03:46,962 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:00, checksum:027B
+2024-02-29 01:03:46,962 [DEBUG] ut61eplus.ut61eplus: [5-3-6] calculated sum=027B expected sum=027B
+2024-02-29 01:03:46,963 [DEBUG] ut61eplus.ut61eplus: [8-2] DMM response, confirm: bytearray(b'\xff\x00')
+2024-02-29 01:03:47,164 [DEBUG] ut61eplus.ut61eplus: [8-3] Send Command completed
+2024-02-29 01:03:47,465 [INFO] __main__: --- Get DMM data ---
+2024-02-29 01:03:47,465 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:03:47,465 [DEBUG] ut61eplus.ut61eplus: [3-2] Initialize (clear) data buffer: 65
+ ['20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:47,465 [DEBUG] ut61eplus.ut61eplus: [3-2-1] write data to buffer: 6
+ ['AB', 'CD', '03', '5E', '01', 'D9']
+2024-02-29 01:03:47,465 [DEBUG] ut61eplus.ut61eplus: [3-2-2] send data buffer: 65
+ ['00', '06', 'AB', 'CD', '03', '5E', '01', 'D9', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20']
+2024-02-29 01:03:47,544 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:03:47,545 [DEBUG] ut61eplus.ut61eplus: [2-2-2] receive report data: 65
+ [0, 19, 171, 205, 16, 3, 48, 45, 49, 48, 48, 46, 52, 50, 3, 9, 48, 52, 57, 3, 182, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:47,545 [DEBUG] ut61eplus.ut61eplus: [2-2-3] store report data to _REC_X64: 64
+ [19, 171, 205, 16, 3, 48, 45, 49, 48, 48, 46, 52, 50, 3, 9, 48, 52, 57, 3, 182, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 144, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152]
+2024-02-29 01:03:47,618 [DEBUG] ut61eplus.ut61eplus: [3-3] HID report writing completed
+2024-02-29 01:03:47,618 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:03:47,619 [DEBUG] ut61eplus.ut61eplus: [5-2] HID report reading
+2024-02-29 01:03:47,619 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:03:47,619 [DEBUG] ut61eplus.ut61eplus: [6-1-1] read from _REC_X64: 64
+ ['13', 'AB', 'CD', '10', '03', '30', '2D', '31', '30', '30', '2E', '34', '32', '03', '09', '30', '34', '39', '03', 'B6', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '90', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98', '98']
+2024-02-29 01:03:47,619 [DEBUG] ut61eplus.ut61eplus: [5-3] HID report reading completed
+2024-02-29 01:03:47,619 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:AB, checksum:00AB
+2024-02-29 01:03:47,619 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 0 -> 1
+2024-02-29 01:03:47,619 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:CD, checksum:0178
+2024-02-29 01:03:47,619 [DEBUG] ut61eplus.ut61eplus: [5-3-2] state 1 -> 2
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:10, checksum:0188
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-5] state 2 -> 3
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:03, checksum:018B
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:30, checksum:01BB
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:2D, checksum:01E8
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:31, checksum:0219
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:30, checksum:0249
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:30, checksum:0279
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:2E, checksum:02A7
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:34, checksum:02DB
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:32, checksum:030D
+2024-02-29 01:03:47,620 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:03, checksum:0310
+2024-02-29 01:03:47,621 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:09, checksum:0319
+2024-02-29 01:03:47,621 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:30, checksum:0349
+2024-02-29 01:03:47,621 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:34, checksum:037D
+2024-02-29 01:03:47,621 [DEBUG] ut61eplus.ut61eplus: [5-3-1] sum all bytes except last 2, b:39, checksum:03B6
+2024-02-29 01:03:47,621 [DEBUG] ut61eplus.ut61eplus: [5-3-6] calculated sum=03B6 expected sum=03B6
+2024-02-29 01:03:47,621 [INFO] __main__: measurent=
+binary=03 30 2d 31 30 30 2e 34 32 03 09 30 34 39
+mode=DCmV
+range=0
+display=-100.42
+display_decimal=-100.42
+display_unit=mV
+overload=False
+value=-4200000000000000000000000.10
+unit=mV
+progress=39
+isMax=False
+ismin=False
+isHold=False
+isRel=False
+isAuto=False
+hasBatteryWarning=False
+hashasHVWarning=False
+isDC=True
+isMaxPeak=False
+isMinPeak=False
+isBarPol=True
+
+2024-02-29 01:03:47,922 [INFO] __main__: --- Close ---
+2024-02-29 01:03:47,923 [INFO] ut61eplus.ut61eplus: [4-1] HID device close
+2024-02-29 01:03:47,927 [DEBUG] ut61eplus.ut61eplus: [10-1] UT61EPLUS class destruct
+

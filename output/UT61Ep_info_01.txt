@@ -1,0 +1,161 @@
+
+(py3117) D:\work>python  D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+
+2024-02-29 01:02:07,288 [INFO] __main__: D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+2024-02-29 01:02:07,288 [INFO] ut61eplus.ut61eplus: [1-1] Device initial, vid:1A86 pid:E429
+2024-02-29 01:02:07,401 [INFO] ut61eplus.ut61eplus: [1-2] HID devices found: 1
+ [HID device (vID=0x1a86, pID=0xe429, v=0x3701); WWW.WCH.CN; WCH UART TO KB-MS_V1.7, Path: \\?\hid#vid_1a86&pid_e429#6&124830c&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}]
+2024-02-29 01:02:07,401 [INFO] ut61eplus.ut61eplus: [2-1] HID device open
+2024-02-29 01:02:07,402 [INFO] ut61eplus.ut61eplus: [7-1] Get name of DMM (Digital Multimeter)
+2024-02-29 01:02:07,403 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:07,469 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:07,555 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:07,555 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:07,581 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:07,756 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:07,756 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:07,756 [INFO] __main__: --- Get DMM name : UT61E+ ---
+2024-02-29 01:02:08,057 [INFO] __main__: --- Light switch On/Off ---
+2024-02-29 01:02:08,057 [INFO] ut61eplus.ut61eplus: [8-1] Send Command: lamp
+2024-02-29 01:02:08,057 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:08,121 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:08,209 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:08,209 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:08,710 [INFO] __main__: --- Get DMM data ---
+2024-02-29 01:02:08,711 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:08,775 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:08,863 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:08,863 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:08,864 [INFO] __main__: measurent=
+binary=03 30 2d 20 35 34 2e 32 32 00 08 30 34 39
+mode=DCmV
+range=0
+display=-54.22
+display_decimal=-54.22
+display_unit=mV
+overload=False
+value=-42200000000000000000000000.05
+unit=mV
+progress=8
+isMax=False
+ismin=False
+isHold=False
+isRel=False
+isAuto=False
+hasBatteryWarning=False
+hashasHVWarning=False
+isDC=True
+isMaxPeak=False
+isMinPeak=False
+isBarPol=True
+
+2024-02-29 01:02:09,165 [INFO] __main__: --- Close ---
+2024-02-29 01:02:09,165 [INFO] ut61eplus.ut61eplus: [4-1] HID device close
+
+
+
+(py3117) D:\work>python  D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+
+2024-02-29 01:02:25,566 [INFO] __main__: D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+2024-02-29 01:02:25,566 [INFO] ut61eplus.ut61eplus: [1-1] Device initial, vid:1A86 pid:E429
+2024-02-29 01:02:25,676 [INFO] ut61eplus.ut61eplus: [1-2] HID devices found: 1
+ [HID device (vID=0x1a86, pID=0xe429, v=0x3701); WWW.WCH.CN; WCH UART TO KB-MS_V1.7, Path: \\?\hid#vid_1a86&pid_e429#6&124830c&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}]
+2024-02-29 01:02:25,676 [INFO] ut61eplus.ut61eplus: [2-1] HID device open
+2024-02-29 01:02:25,678 [INFO] ut61eplus.ut61eplus: [7-1] Get name of DMM (Digital Multimeter)
+2024-02-29 01:02:25,678 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:25,746 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:25,831 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:25,831 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:25,859 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:26,032 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:26,032 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:26,032 [INFO] __main__: --- Get DMM name : UT61E+ ---
+2024-02-29 01:02:26,334 [INFO] __main__: --- Light switch On/Off ---
+2024-02-29 01:02:26,334 [INFO] ut61eplus.ut61eplus: [8-1] Send Command: lamp
+2024-02-29 01:02:26,334 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:26,398 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:26,486 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:26,487 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:26,989 [INFO] __main__: --- Get DMM data ---
+2024-02-29 01:02:26,989 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:27,052 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:27,141 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:27,141 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:27,141 [INFO] __main__: measurent=
+binary=03 30 2d 20 36 38 2e 35 39 01 01 30 34 39
+mode=DCmV
+range=0
+display=-68.59
+display_decimal=-68.59
+display_unit=mV
+overload=False
+value=-85900000000000000000000000.06
+unit=mV
+progress=11
+isMax=False
+ismin=False
+isHold=False
+isRel=False
+isAuto=False
+hasBatteryWarning=False
+hashasHVWarning=False
+isDC=True
+isMaxPeak=False
+isMinPeak=False
+isBarPol=True
+
+2024-02-29 01:02:27,443 [INFO] __main__: --- Close ---
+2024-02-29 01:02:27,443 [INFO] ut61eplus.ut61eplus: [4-1] HID device close
+
+(py3117) D:\work\UT61Ep\github\unit_ut61eplus_hid>python  D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+2024-02-29 01:02:36,585 [INFO] __main__: D:\work\UT61Ep\github\unit_ut61eplus\readDMM_ut61ep.py
+2024-02-29 01:02:36,585 [INFO] ut61eplus.ut61eplus: [1-1] Device initial, vid:1A86 pid:E429
+2024-02-29 01:02:36,692 [INFO] ut61eplus.ut61eplus: [1-2] HID devices found: 1
+ [HID device (vID=0x1a86, pID=0xe429, v=0x3701); WWW.WCH.CN; WCH UART TO KB-MS_V1.7, Path: \\?\hid#vid_1a86&pid_e429#6&124830c&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}]
+2024-02-29 01:02:36,692 [INFO] ut61eplus.ut61eplus: [2-1] HID device open
+2024-02-29 01:02:36,695 [INFO] ut61eplus.ut61eplus: [7-1] Get name of DMM (Digital Multimeter)
+2024-02-29 01:02:36,695 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:36,731 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:36,843 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:36,848 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:36,848 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:37,049 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:37,049 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:37,050 [INFO] __main__: --- Get DMM name : UT61E+ ---
+2024-02-29 01:02:37,351 [INFO] __main__: --- Light switch On/Off ---
+2024-02-29 01:02:37,351 [INFO] ut61eplus.ut61eplus: [8-1] Send Command: lamp
+2024-02-29 01:02:37,351 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:37,381 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:37,504 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:37,504 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:38,006 [INFO] __main__: --- Get DMM data ---
+2024-02-29 01:02:38,007 [INFO] ut61eplus.ut61eplus: [3-1] HID report writing and sending
+2024-02-29 01:02:38,110 [INFO] ut61eplus.ut61eplus: [2-2-1] HID response, receive report from HID
+2024-02-29 01:02:38,160 [INFO] ut61eplus.ut61eplus: [5-1] Extract data from receive report
+2024-02-29 01:02:38,160 [INFO] ut61eplus.ut61eplus: [6-1] HID report data getting
+2024-02-29 01:02:38,160 [INFO] __main__: measurent=
+binary=03 30 2d 31 31 35 2e 30 31 01 04 30 34 39
+mode=DCmV
+range=0
+display=-115.01
+display_decimal=-115.01
+display_unit=mV
+overload=False
+value=-50100000000000000000000000.11
+unit=mV
+progress=14
+isMax=False
+ismin=False
+isHold=False
+isRel=False
+isAuto=False
+hasBatteryWarning=False
+hashasHVWarning=False
+isDC=True
+isMaxPeak=False
+isMinPeak=False
+isBarPol=True
+
+2024-02-29 01:02:38,462 [INFO] __main__: --- Close ---
+2024-02-29 01:02:38,462 [INFO] ut61eplus.ut61eplus: [4-1] HID device close
+
