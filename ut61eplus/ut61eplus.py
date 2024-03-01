@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 #
+# version date : 2024/3/1
+#
 #
 # Use UT-D09A cable to communicate with UT61E+ in Windows
 #
